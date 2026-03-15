@@ -1,1 +1,114 @@
-/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600&display=swap');
+
+/* ── Design Tokens ────────────────────────────────────────────────────────── */
+:root {
+  /* Palette */
+  --bg:           #0d0f14;
+  --surface:      #14171f;
+  --surface-hover:#1b1f2b;
+  --border:       #252935;
+  --accent:       #6366f1;
+  --accent-dark:  #4f52cc;
+
+  /* Text */
+  --text-primary:   #f1f2f6;
+  --text-secondary: #9095a8;
+  --text-muted:     #5c6178;
+
+  /* Status colours */
+  --status-applied:      #60a5fa;
+  --status-interviewing: #facc15;
+  --status-offer:        #4ade80;
+  --status-rejected:     #f87171;
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+}
+
+/* ── Reset / Base ─────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Bootstrap overrides ──────────────────────────────────────────────────── */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.5rem 1.15rem;
+  font-size: 0.9rem;
+  transition: all 0.18s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.btn-primary {
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+  color: #fff !important;
+}
+.btn-primary:hover { background: var(--accent-dark) !important; border-color: var(--accent-dark) !important; }
+
+.btn-outline-secondary {
+  background: transparent !important;
+  border-color: var(--border) !important;
+  color: var(--text-secondary) !important;
+}
+.btn-outline-secondary:hover {
+  background: var(--surface-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+.btn-outline-danger {
+  background: transparent !important;
+  border-color: rgba(239,68,68,0.4) !important;
+  color: var(--status-rejected) !important;
+}
+.btn-outline-danger:hover {
+  background: rgba(239,68,68,0.1) !important;
+}
+
+.btn-danger {
+  background: #ef4444 !important;
+  border-color: #ef4444 !important;
+  color: #fff !important;
+}
+.btn-danger:hover { background: #dc2626 !important; border-color: #dc2626 !important; }
+
+.form-control,
+.form-select {
+  background-color: var(--bg) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-primary) !important;
+  border-radius: 10px !important;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--font-body);
+  font-size: 0.93rem;
+}
+.form-control::placeholder { color: var(--text-muted) !important; }
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.2) !important;
+  border-color: var(--accent) !important;
+  outline: none !important;
+}
+.form-control.is-invalid,
+.form-select.is-invalid { border-color: #ef4444 !important; }
+.invalid-feedback { color: #f87171; font-size: 0.8rem; margin-top: 0.25rem; }
+
+/* Dark select option */
+select option { 
+  background: var(--surface); 
+  color: var(--text-primary); 
+}
+

@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container-xl">
+    <a class="navbar-brand" routerLink="/" (click)="closeMenu()">
+      <span class="brand-icon">💼</span>
+      <span class="brand-text">JobRadar</span>
+    </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Toggle navigation">
+      <span class="toggler-bar"></span>
+      <span class="toggler-bar"></span>
+      <span class="toggler-bar"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" [class.show]="menuOpen">
+      <ul class="navbar-nav ms-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link"
+             routerLink="/"
+             routerLinkActive="active"
+             [routerLinkActiveOptions]="{ exact: true }"
+             (click)="closeMenu()">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-link--cta"
+             routerLink="/add"
+             routerLinkActive="active"
+             (click)="closeMenu()">+ Add Job</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="app-main">
+  <router-outlet />
+</main>
+
+<footer class="app-footer">
+  <div class="container-xl">
+    <span>JobRadar &copy; {{ year }} — All data stored locally in your browser.</span>
+  </div>
+</footer>

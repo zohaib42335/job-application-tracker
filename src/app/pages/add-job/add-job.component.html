@@ -1,0 +1,96 @@
+<div class="container-xl">
+  <div class="form-wrapper">
+
+    <!-- Header -->
+    <div class="form-header">
+      <a routerLink="/" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"/></svg>
+        Back
+      </a>
+      <h1 class="form-title">Add Application</h1>
+      <p class="form-subtitle">Log a new job you've applied to or plan to apply for.</p>
+    </div>
+
+    <!-- Form Card -->
+    <div class="form-card">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+
+        <!-- Company Name -->
+        <div class="field-group">
+          <label class="field-label" for="companyName">Company Name *</label>
+          <input
+            id="companyName"
+            type="text"
+            class="form-control field-input"
+            [class.is-invalid]="isInvalid('companyName')"
+            formControlName="companyName"
+            placeholder="e.g. Acme Corp" />
+          @if (isInvalid('companyName')) {
+            <div class="invalid-feedback">Company name is required (min 2 chars).</div>
+          }
+        </div>
+
+        <!-- Job Title -->
+        <div class="field-group">
+          <label class="field-label" for="jobTitle">Job Title *</label>
+          <input
+            id="jobTitle"
+            type="text"
+            class="form-control field-input"
+            [class.is-invalid]="isInvalid('jobTitle')"
+            formControlName="jobTitle"
+            placeholder="e.g. Senior Frontend Engineer" />
+          @if (isInvalid('jobTitle')) {
+            <div class="invalid-feedback">Job title is required (min 2 chars).</div>
+          }
+        </div>
+
+        <!-- Status & Date row -->
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label" for="status">Status *</label>
+            <select id="status" class="form-select field-input" formControlName="status">
+              @for (s of statuses; track s) {
+                <option [value]="s">{{ s }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="appliedDate">Date Applied *</label>
+            <input
+              id="appliedDate"
+              type="date"
+              class="form-control field-input"
+              [class.is-invalid]="isInvalid('appliedDate')"
+              formControlName="appliedDate" />
+            @if (isInvalid('appliedDate')) {
+              <div class="invalid-feedback">Please select a date.</div>
+            }
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="field-group">
+          <label class="field-label" for="notes">Notes</label>
+          <textarea
+            id="notes"
+            class="form-control field-input"
+            formControlName="notes"
+            rows="4"
+            placeholder="Interview links, contacts, salary range, anything helpful…"></textarea>
+        </div>
+
+        <!-- Actions -->
+        <div class="form-actions">
+          <a routerLink="/" class="btn btn-outline-secondary">Cancel</a>
+          <button type="submit" class="btn btn-primary btn-submit">
+            Save Application
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
