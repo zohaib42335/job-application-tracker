@@ -5,11 +5,7 @@
       <span class="brand-text">JobRadar</span>
     </a>
 
-    <button
-      class="navbar-toggler"
-      type="button"
-      (click)="toggleMenu()"
-      [attr.aria-expanded]="menuOpen"
+    <button class="navbar-toggler d-lg-none" type="button" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen"
       aria-label="Toggle navigation">
       <span class="toggler-bar"></span>
       <span class="toggler-bar"></span>
@@ -19,17 +15,12 @@
     <div class="collapse navbar-collapse" [class.show]="menuOpen">
       <ul class="navbar-nav ms-auto gap-1">
         <li class="nav-item">
-          <a class="nav-link"
-             routerLink="/"
-             routerLinkActive="active"
-             [routerLinkActiveOptions]="{ exact: true }"
-             (click)="closeMenu()">Dashboard</a>
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+            (click)="closeMenu()">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link--cta"
-             routerLink="/add"
-             routerLinkActive="active"
-             (click)="closeMenu()">+ Add Job</a>
+          <a class="nav-link nav-link--cta" routerLink="/add" routerLinkActive="active" (click)="closeMenu()">+ Add
+            Job</a>
         </li>
       </ul>
     </div>
